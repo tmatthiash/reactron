@@ -51,7 +51,8 @@ server.on("message", (msg, _rinfo) => {
     server.close();
   }
 
-  console.log(binaryPackets);
+  console.log("rinfo ", _rinfo)
+  console.log("packets ", binaryPackets[0]);
   // const firstPacketFormattedToJSON = formatPacketToJSON(binaryPackets[0])
   // console.log(firstPacketFormattedToJSON);
 
@@ -71,7 +72,7 @@ server.on("message", (msg, _rinfo) => {
   //   path.resolve(__dirname, "./report.json"),
   //   JSON.stringify(decode(msg))
   // );
-  // server.close();
+  server.close();
 });
 
 server.on("error", (err) => {
@@ -81,12 +82,12 @@ server.on("error", (err) => {
 
 server.on("listening", () => {
   // ipcMain.emit('electron-store-set', 'msgBloc', 'hello')
-  store.set("msgBlock", "testsdfswalksjdf")
+  store.set("msgBlock", ["test", "message"])
 
   // ipcMain.send('electron-store-set', 'msgBloc', "hello");
   const address = server.address();
   console.log(`server listening ${address.address}:${address.port}`);
 });
 
-server.bind(60084, "255.255.255.255");
+server.bind(60084);
 

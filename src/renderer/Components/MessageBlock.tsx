@@ -37,5 +37,7 @@ export const MessageBlock = () => {
         }, 1000)
     })
 
-    return (<div>{message}</div>)
+    return (<div className="message-block">{message.map((row: any) => {
+        return (<div>{row}</div>)
+    })}</div>)
 }

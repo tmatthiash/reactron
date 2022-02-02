@@ -12,9 +12,9 @@ const Hello = () => {
   
   return (
     <div>
-      <div className="Hello">
+      {/* <div className="Hello">
         <img width="200px" alt="icon" src={icon} />
-      </div>
+      </div> */}
       <MessageBlock />
     </div>
   );
